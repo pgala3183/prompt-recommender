@@ -1,0 +1,55 @@
+database:
+  url: "sqlite:///./data/prompt_recommender.db"
+  echo: false
+
+models:
+  embedding:
+    name: "sentence-transformers/all-MiniLM-L6-v2"
+    device: "cpu"
+  grader:
+    name: "gpt-4"
+    temperature: 0.0
+    max_tokens: 500
+  
+retrieval:
+  top_k_candidates: 50
+  top_n_recommendations: 5
+  
+reranking:
+  quality_weight: 0.5
+  cost_weight: 0.3
+  safety_weight: 0.2
+  
+pricing:
+  gpt-4:
+    input: 0.03  # per 1K tokens
+    output: 0.06
+  claude-3-opus:
+    input: 0.015
+    output: 0.075
+  gemini-1.5-pro:
+    input: 0.00125
+    output: 0.005
+
+safety:
+  min_score: 70
+  disallowed_keywords:
+    - "ignore previous instructions"
+    - "bypass safety"
+    - "jailbreak"
+  
+evaluation:
+  bootstrap_samples: 1000
+  confidence_alpha: 0.05
+  propensity_clip_min: 0.01
+  
+bandit:
+  epsilon: 0.1
+  test_size: 100
+  significance_threshold: 0.05
+  min_improvement: 0.05
+
+deduplication:
+  num_perm: 128
+  threshold: 0.9
+  shingle_size: 3

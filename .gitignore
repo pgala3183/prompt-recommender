@@ -1,0 +1,70 @@
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.db
+*.sqlite
+*.log
+.env
+
+# But include these important files
+!.gitignore
+!README.md
+!requirements.txt
+!setup.py
+!*.bat
+!*.sh
+!*.md
+
+# Include all source code and scripts
+!src/
+!src/**
+!scripts/
+!scripts/**
+!tests/
+!tests/**
+!config/
+!config/**
+!data/
+!data/**
+!models/
+!models/**
+!notebooks/
+!notebooks/**
+!migrations/
+!migrations/**
